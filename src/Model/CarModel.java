@@ -41,7 +41,7 @@ public class CarModel {
         }
     }
 
-    public void addListener(AnimateListener l){
+    public void addListener(AnimateListener l) {
         animateListeners.add(l);
     }
 
@@ -57,20 +57,26 @@ public class CarModel {
         return vehicles;
     }
 
-    private int getXPos(){
-        if(vehicles.size() % 4 == 0){
-            return 150*(vehicles.size() / 4 + 1);
+    private int getXPos() {
+        if (vehicles.size() % 4 == 0) {
+            return 150 * (vehicles.size() / 4 + 1);
         }
-        return (int) (150*(Math.ceil((vehicles.size() + 1) / 4.0)));
+        return (int) (150 * (Math.ceil((vehicles.size() + 1) / 4.0)));
     }
 
-    private int getYPos(){
-        return 100*((vehicles.size() % 4) + 1);
+    private int getYPos() {
+        return 100 * ((vehicles.size() % 4) + 1);
     }
 
-    public void addVehicle(){
-        if(vehicles.size() < 10) {
+    public void addVehicle() {
+        if (vehicles.size() < 10) {
             vehicles.add(VehicleFactory.createRandomVehicle(new Point(getXPos(), getYPos())));
+        }
+    }
+
+    public void removeVehicle() {
+        if (!vehicles.isEmpty()){
+            vehicles.remove(vehicles.size() -1);
         }
     }
 

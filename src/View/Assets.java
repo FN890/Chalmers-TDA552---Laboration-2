@@ -1,5 +1,7 @@
 package View;
 
+import Model.IVehicle;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 
@@ -19,7 +21,7 @@ public class Assets {
 
         Image tempImage = null;
 
-        if(imagePath != null) {
+        if (imagePath != null) {
             try {
                 tempImage = ImageIO.read(Assets.class.getResourceAsStream(imagePath));
             } catch (IOException e) {
@@ -33,10 +35,9 @@ public class Assets {
             throw new NullPointerException("ERROR - Could not find image at path" +
                     ": " + imagePath);
         }
-
     }
 
-    public Image get(Object object){
+    public Image get(Object object) {
         return vehicleImage.get(object);
     }
 

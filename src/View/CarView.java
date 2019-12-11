@@ -2,6 +2,7 @@ package View;
 
 import Controller.CarController;
 import Model.IVehicle;
+
 import static Model.CarModel.GAME_WIDTH;
 import static Model.CarModel.GAME_HEIGHT;
 
@@ -22,7 +23,7 @@ public class CarView extends JFrame implements AnimateListener {
     CarController carController;
 
     DrawPanel drawPanel = new DrawPanel(this, GAME_WIDTH, GAME_HEIGHT - 240);
-    ExtraGui extraGui = new ExtraGui(this);
+    ExtraView extraView = new ExtraView(this);
 
     JPanel controlPanel = new JPanel();
 
@@ -56,6 +57,7 @@ public class CarView extends JFrame implements AnimateListener {
         this.setPreferredSize(new Dimension(GAME_WIDTH, GAME_HEIGHT));
         this.setLayout(new FlowLayout(FlowLayout.LEFT, 0, 0));
 
+        drawPanel.setBackground(Color.LIGHT_GRAY);
         this.add(drawPanel);
 
         SpinnerModel spinnerModel =
@@ -84,7 +86,7 @@ public class CarView extends JFrame implements AnimateListener {
         controlPanel.add(lowerBedButton, 5);
         controlPanel.setPreferredSize(new Dimension((GAME_WIDTH / 2) + 4, 200));
         this.add(controlPanel);
-        controlPanel.setBackground(Color.CYAN);
+        controlPanel.setBackground(Color.GRAY);
 
 
         startButton.setBackground(Color.blue);
@@ -94,7 +96,7 @@ public class CarView extends JFrame implements AnimateListener {
 
 
         stopButton.setBackground(Color.red);
-        stopButton.setForeground(Color.black);
+        stopButton.setForeground(Color.red);
         stopButton.setPreferredSize(new Dimension(GAME_WIDTH / 5 - 15, 200));
         this.add(stopButton);
 
@@ -127,7 +129,7 @@ public class CarView extends JFrame implements AnimateListener {
         this.setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
         // Make the frame visible
 
-        extraGui.createExtraGui();
+        extraView.createExtraGui();
 
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
@@ -135,18 +137,18 @@ public class CarView extends JFrame implements AnimateListener {
 
     }
 
-    public void setCarController(CarController carController){
+    public void setCarController(CarController carController) {
         this.carController = carController;
     }
 
     @Override
     public void onUpdate() {
 
-        extraGui.resetText();
-        for(IVehicle vehicle : carController.getVehicles()){
-            extraGui.setSpeed(vehicle);
+        extraView.resetText();
+        for (IVehicle vehicle : carController.getVehicles()) {
+            extraView.setSpeed(vehicle);
         }
-        extraGui.setText();
+        extraView.setText();
         repaint();
     }
 

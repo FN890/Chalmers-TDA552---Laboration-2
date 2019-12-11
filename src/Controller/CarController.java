@@ -90,6 +90,10 @@ public class CarController {
         bindVehicles();
     }
 
+    public void removeVehicle() {
+        carModel.removeVehicle();
+    }
+
     public void bindVehicles() {
         for (IVehicle vehicle : carModel.getVehicles()) {
             switch (vehicle.getModelName()) {
