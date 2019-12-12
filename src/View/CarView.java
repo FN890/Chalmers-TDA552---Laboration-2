@@ -88,15 +88,12 @@ public class CarView extends JFrame implements AnimateListener {
         this.add(controlPanel);
         controlPanel.setBackground(Color.GRAY);
 
-
-        startButton.setBackground(Color.blue);
-        startButton.setForeground(Color.green);
+        startButton.setForeground(Color.GREEN);
         startButton.setPreferredSize(new Dimension(GAME_WIDTH / 5 - 15, 200));
         this.add(startButton);
 
 
-        stopButton.setBackground(Color.red);
-        stopButton.setForeground(Color.red);
+        stopButton.setForeground(Color.RED);
         stopButton.setPreferredSize(new Dimension(GAME_WIDTH / 5 - 15, 200));
         this.add(stopButton);
 
